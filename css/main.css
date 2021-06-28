@@ -19,3 +19,32 @@ html,body{
     height: 100vh;
     background-color: deepskyblue;
 }
+.barreiras{
+    position: absolute;
+    left: 50%;
+    width: 70px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.barreira{
+    width: 100%;
+    height: 40vh;
+}
+.borda{
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(90deg,#639301,#a5e82e);
+    border:3px solid black;
+}
+.corpo{
+    width: 100%;
+    height: 90%;
+    background: linear-gradient(90deg,#639301,#a5e82e);
+    border:3px solid black;
+}
+.barreira.up{
+    transform: rotate(180deg);
+}
