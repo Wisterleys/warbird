@@ -6,5 +6,16 @@
 html,body{
     padding: 0px;
     margin: 0px;
-    font-family: coisa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#place-game{
+    font-family: Pixel;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: deepskyblue;
 }
