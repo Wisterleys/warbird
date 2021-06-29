@@ -18,6 +18,7 @@ html,body{
     width: 100vw;
     height: 100vh;
     background-color: deepskyblue;
+    overflow: hidden;
 }
 .barreiras{
     position: absolute;
@@ -29,12 +30,12 @@ html,body{
 .barreira{
     width: 90%;
 }
-#a{
+.barreira.a{
     position: absolute;
     top: 0;
     height: 40vh;
 }
-#b{
+.barreira.b{
    position: absolute;
    bottom: 0;
    height: 40vh; 
