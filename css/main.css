@@ -22,16 +22,22 @@ html,body{
 .barreiras{
     position: absolute;
     left: 50%;
-    width: 70px;
+    width: 80px;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     
 }
 .barreira{
-    width: 100%;
+    width: 90%;
+}
+#a{
+    position: absolute;
+    top: 0;
     height: 40vh;
+}
+#b{
+   position: absolute;
+   bottom: 0;
+   height: 40vh; 
 }
 .borda{
     width: 100%;
