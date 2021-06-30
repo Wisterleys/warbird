@@ -1,0 +1,1 @@
+console.log(document.querySelectorAll(".barreira")[1].getBoundingClientRect().x)
