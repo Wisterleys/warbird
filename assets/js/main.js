@@ -1,1 +1,4 @@
-console.log(document.querySelectorAll(".barreira")[1].getBoundingClientRect().x)
+const CONFIG={
+    gameArea:document.querySelector("#place-game")
+}
+new Controller(CONFIG);
