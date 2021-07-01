@@ -31,12 +31,12 @@ html,body{
 .barreira.a{
     top: 0;
     left: 50%;
-    height: 40vh;
+    height: 20vh;
 }
 .barreira.b{
    bottom: 0;
    left: 50%;
-   height: 40vh; 
+   height: 60vh; 
 }
 .borda{
     width: 100%;
