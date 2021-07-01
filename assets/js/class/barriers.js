@@ -6,6 +6,7 @@ class Barriers{
         this._mainLoop;
         this.move(this.place,this.template(this.place[0],this.color))
     }
+    
     move(area,el){
         el.style.left=area[1].width+"px"
         let counter=1;
