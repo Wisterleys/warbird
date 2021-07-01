@@ -8,17 +8,21 @@ class Barriers{
     }
     
     move(area,el){
-        el.style.left=area[1].width+"px"
+        el[0].style.left=area[1].width+"px"
+        el[1].style.left=area[1].width+"px"
         let counter=1;
         this.mainLoop=setInterval(()=>{
-            el.style.left=el.offsetLeft-(counter*this.vel)+"px";
-            //counter--;
-            if(el.offsetLeft<-100){el.remove();clearInterval(this.mainLoop);}
+            el.forEach(e => {
+                e.style.left=e.offsetLeft-(counter*this.vel)+"px";
+                if(e.offsetLeft<-100){e.remove();clearInterval(this.mainLoop);}
+            });
         },100)
+    }
+    rand(max,min){
+        return Math.random() * (max - min) + min;
     }
     template(el,color){
         /*
-        <div class="barreiras">
             <div class="barreira up a">
                 <div class="borda"></div>
                 <div class="corpo"></div>
@@ -27,16 +31,15 @@ class Barriers{
                 <div class="borda"></div>
                 <div class="corpo"></div>
             </div>
-        </div>
         */
-       let res = el.addEl({tag:"div",class:"barreiras"})
-       let up = res.addEl({tag:"div",class:"barreira up a",style:`background: linear-gradient(90deg,${color.color[0]},${color.color[1]});`})
+       let random = this.rand(200,1)
+       let up = el.addEl({tag:"div",class:"barreira up a",style:`background: linear-gradient(90deg,${color.color[0]},${color.color[1]});`})
        up.addEl({tag:"div",class:"borda"})
        up.addEl({tag:"div",class:"corpo"})
-       let down = res.addEl({tag:"div",class:"barreira b"})
+       let down = el.addEl({tag:"div",class:"barreira b"})
        down.addEl({tag:"div",class:"borda"})
        down.addEl({tag:"div",class:"corpo"})
-       return res;
+       return [up,down];
     }
     //GETs and SETs
     get vel(){return this._vel;}
