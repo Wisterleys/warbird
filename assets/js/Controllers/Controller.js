@@ -1,8 +1,13 @@
 class Controller{
     constructor(data){
         this._game_area = data.gameArea;
-        this._barriers = new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10});
         //Methods
+        this.start()
+    }
+    start(){
+        setInterval(e=>{
+            new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10});
+        },4000)
     }
     getPosition(el){
         return el.getBoundingClientRect()

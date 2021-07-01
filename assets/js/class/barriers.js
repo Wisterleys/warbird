@@ -12,7 +12,7 @@ class Barriers{
         this.mainLoop=setInterval(()=>{
             el.style.left=el.offsetLeft-(counter*this.vel)+"px";
             //counter--;
-            if(el.offsetLeft<0){el.remove();clearInterval(this.mainLoop);}
+            if(el.offsetLeft<-100){el.remove();clearInterval(this.mainLoop);}
         },100)
     }
     template(el,color){
