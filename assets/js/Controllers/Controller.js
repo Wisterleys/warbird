@@ -1,7 +1,7 @@
 class Controller{
     constructor(data){
         this._game_area = data.gameArea;
-        this._barriers = new Barriers({color:["#639301","#a5e82e"]});
+        this._barriers = new Barriers(this.game_area,{color:["#639301","#a5e82e"]});
         //Methods
     }
     getPosition(el){
