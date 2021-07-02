@@ -1,0 +1,30 @@
+.barreira{
+    position: absolute;
+    z-index: 2;
+    width: 70px;
+}
+.barreira.up{
+    transform: rotate(180deg);
+}
+.barreira.a{
+    top: 0;
+    left: 50%;
+    height: 20vh;
+}
+.barreira.b{
+   bottom: 0;
+   left: 50%;
+   height: 60vh; 
+}
+.borda{
+    width: 100%;
+    height: 25px;
+    background: linear-gradient(90deg,#639301,#a5e82e);
+    border:3px solid black;
+}
+.corpo{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,#639301,#a5e82e);
+    border:3px solid black;
+}
