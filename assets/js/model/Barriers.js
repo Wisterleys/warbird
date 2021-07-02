@@ -6,7 +6,12 @@ class Barriers{
         this._mainLoop;
         this.move(this.place,this.template(this.place[0],this.color))
     }
-    
+    calculateBarriers(number){
+        const res = 100-number
+        let data ={up:0,down:0}
+        data.up=(number-20)>0?number-20:1;data.down=res>0?res>80?80:res:1
+        return data;
+    }
     move(area,el){
         el[0].style.left=area[1].width+"px"
         el[1].style.left=area[1].width+"px"
@@ -32,11 +37,12 @@ class Barriers{
                 <div class="corpo"></div>
             </div>
         */
-       let random = this.rand(100,1)
-       let up = el.addEl({tag:"div",class:"barreira up a",style:`background: linear-gradient(90deg,${color.color[0]},${color.color[1]});height: ${random-20}vh;`})
+       let random = this.calculateBarriers(this.rand(100,1))
+       console.log(random)
+       let up = el.addEl({tag:"div",class:"barreira up a",style:`background: linear-gradient(90deg,${color.color[0]},${color.color[1]});height: ${random.up}vh;`})
        up.addEl({tag:"div",class:"borda"})
        up.addEl({tag:"div",class:"corpo"})
-       let down = el.addEl({tag:"div",class:"barreira b",style:`height: ${random-20}vh;`})
+       let down = el.addEl({tag:"div",class:"barreira b",style:`height: ${random.down}vh;`})
        down.addEl({tag:"div",class:"borda"})
        down.addEl({tag:"div",class:"corpo"})
        return [up,down];
