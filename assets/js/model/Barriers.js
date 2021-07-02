@@ -17,10 +17,12 @@ class Barriers{
         el[1].style.left=area[1].width+"px"
         let counter=1;
         this.mainLoop=setInterval(()=>{
-            el.forEach(e => {
-                e.style.left=e.offsetLeft-(counter*this.vel)+"px";
-                if(e.offsetLeft<-100){e.remove();clearInterval(this.mainLoop);}
-            });
+            if($("#control-all").value=="true"){
+                el.forEach(e => {
+                    e.style.left=e.offsetLeft-(counter*this.vel)+"px";
+                    if(e.offsetLeft<-100){e.remove();clearInterval(this.mainLoop);}
+                });
+            }
         },100)
     }
     rand(max,min){

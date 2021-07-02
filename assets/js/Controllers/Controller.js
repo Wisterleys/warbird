@@ -6,15 +6,18 @@ class Controller{
        this.onStart()
     }
     onStart(){
+        $("#control-all").value=true
         $("#start").on("click",e=>{
             this.start()
             $("#start").disabled=true
             $("#stop").disabled=false
+            $("#control-all").value=true
         })
         $("#stop").on("click",e=>{
             clearInterval(this.main_loop)
             $("#start").disabled=false
             $("#stop").disabled=true
+            $("#control-all").value=false
         })
     }
     start(){
