@@ -8,9 +8,7 @@ class Barriers{
     }
     calculateBarriers(number){
         const res = 100-number
-        let data ={up:0,down:0}
-        data.up=(number-20)>0?number-20:1;data.down=res>0?res>80?80:res:1
-        return data;
+        return {up:(number-20)>0?number-20:1,down:res>0?res>80?80:res:1};
     }
     move(area,el){
         el[0].style.left=area[1].width+"px"

@@ -21,6 +21,7 @@ class Controller{
         })
     }
     start(){
+        !$(".barreira")[0]?new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10}):0
         this.main_loop=setInterval(e=>{
             new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10});
         },4000)
