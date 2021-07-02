@@ -38,7 +38,6 @@ class Barriers{
             </div>
         */
        let random = this.calculateBarriers(this.rand(100,1))
-       console.log(random)
        let up = el.addEl({tag:"div",class:"barreira up a",style:`background: linear-gradient(90deg,${color.color[0]},${color.color[1]});height: ${random.up}vh;`})
        up.addEl({tag:"div",class:"borda"})
        up.addEl({tag:"div",class:"corpo"})
