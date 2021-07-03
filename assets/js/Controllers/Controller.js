@@ -6,7 +6,8 @@ class Controller{
        this.onStart()
     }
     onStart(){
-        $("#control-all").value=true
+        new FlappyPc(this.game_area);
+        $("#control-all").value=null
         $("#start").on("click",e=>{
             this.start()
             $("#start").disabled=true
