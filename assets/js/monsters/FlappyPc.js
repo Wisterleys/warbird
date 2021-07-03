@@ -2,13 +2,21 @@ class FlappyPc{
     constructor(place){
         this._place = place;
         this._direction=0;
-        this._vel=5;
+        this._vel=30;
         this.move(this.template(this.place))
     }
     intelligence(I){
-        $(".barreira").forEach(bar => {
-            
-        });
+        let direction=0;
+        let IHave = this.getPosition(I)
+        for (let i = 0; i < $(".b").length; i++) {
+            let barr = this.getPosition($(".b")[i]);
+                if(IHave.y+IHave.height+15<barr.y&&IHave.x>barr.x-230&&IHave.x<barr.x){
+                    direction=1;
+                    break;
+                }
+                else if(IHave.y+IHave.height+15>barr.y&&IHave.x>barr.x-230&&IHave.x<barr.x){direction=-1;break;}
+        }
+        return direction;
     }
     template(el){
         /*
@@ -25,7 +33,7 @@ class FlappyPc{
     }
     move(el){
         this.mainLoop=setInterval(()=>{
-            $(".barreira")[0]?this.intelligence(this.getPosition(el)):0
+            $(".barreira")[0]?this.direction=this.intelligence(el):0
             if($("#control-all").value=="true"){
                 el.style.top=el.offsetTop+(this.direction*this.vel)+"px";
             }
