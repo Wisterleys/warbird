@@ -1,7 +1,7 @@
 @import url("barriers.css");
 @import url("flappybird.css");
 @font-face {
-    font-family: "coisa";
+    font-family: "Pixel";
     src: url("../fonts/Pixel.ttf");
 }
 html,body{
@@ -12,7 +12,6 @@ html,body{
     align-items: center;
 }
 #place-game{
-    font-family: Pixel;
     position: relative;
     margin: 0px;
     padding: 0px;
@@ -21,7 +20,7 @@ html,body{
     background-color: deepskyblue;
     overflow: hidden;
 }
-
+#place-game *{font-family: Pixel;}
 
 #painel{
     position: absolute;
