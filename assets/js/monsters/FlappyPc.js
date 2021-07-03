@@ -2,7 +2,7 @@ class FlappyPc{
     constructor(place){
         this._place = place;
         this._direction=0;
-        this._vel=30;
+        this._vel=35;
         this.move(this.template(this.place))
     }
     intelligence(I){
@@ -10,11 +10,13 @@ class FlappyPc{
         let IHave = this.getPosition(I)
         for (let i = 0; i < $(".b").length; i++) {
             let barr = this.getPosition($(".b")[i]);
-                if(IHave.y+IHave.height+15<barr.y&&IHave.x>barr.x-230&&IHave.x<barr.x){
+            if(IHave.x>barr.x-250&&IHave.x<=barr.x){
+                if(IHave.y+IHave.height+15<barr.y){
                     direction=1;
                     break;
                 }
-                else if(IHave.y+IHave.height+15>barr.y&&IHave.x>barr.x-230&&IHave.x<barr.x){direction=-1;break;}
+                else if(IHave.y+IHave.height>barr.y+15){direction=-1;break;}
+            }
         }
         return direction;
     }
