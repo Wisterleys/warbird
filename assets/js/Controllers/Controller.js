@@ -6,7 +6,11 @@ class Controller{
        this.onStart()
     }
     onStart(){
-        new FlappyPc(this.game_area);
+        const teste =[/*{nome:"Mario",posi:2.5},{nome:"Mike",posi:3.5},{nome:"Raimundo",posi:5},{nome:"Silver",posi:9},*/{nome:"Guia",posi:2}]
+        teste.forEach(play=>{
+            new FlappyPc(this.game_area,play.posi,play.nome);
+        })
+      
         $("#control-all").value=null
         $("#start").on("click",e=>{
             this.start()

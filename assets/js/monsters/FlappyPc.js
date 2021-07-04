@@ -1,36 +1,38 @@
 class FlappyPc{
-    constructor(place){
+    constructor(place,dis,name){
         this._place = place;
         this._direction=0;
-        this._vel=35;
-        this.move(this.template(this.place))
+        this._vel=70;
+        this.move(this.template(this.place,dis,name))
     }
     intelligence(I){
         let direction=0;
-        let IHave = this.getPosition(I)
+        const IHave = this.getPosition(I)
         for (let i = 0; i < $(".b").length; i++) {
-            let barr = this.getPosition($(".b")[i]);
-            if(IHave.x>barr.x-250&&IHave.x<=barr.x){
-                if(IHave.y+IHave.height+15<barr.y){
+            const barr_a = this.getPosition($(".a")[i]);
+            const barr_b = this.getPosition($(".b")[i]);
+            if(IHave.x>barr_b.x-250&&IHave.x<=barr_b.x){
+                if(IHave.y<barr_a.y+barr_a.height+5){
                     direction=1;
                     break;
                 }
-                else if(IHave.y+IHave.height>barr.y+15){direction=-1;break;}
+                else if(IHave.y+IHave.height>barr_b.y-5){direction=-1;break;}
             }
         }
         return direction;
     }
-    template(el){
+    template(el,dis,name=""){
         /*
             <div id="playerPC">
             <img src="assets/images/passaro.png" alt="passaro">
             </div>
         */
        let e = el.addEl({tag:"div",id:"playerPC"})
+       e.addEl({tag:"div",insertTag:name,style:"margin:0px;padding:0px"})
        e.addEl({tag:"img",src:"assets/images/passaro.png",alt:"passaro"})
        const place = this.getPosition(this.place)
        e.style.top=place.height/2+"px"
-       e.style.left=place.width/4+"px"
+       e.style.left=place.width/dis+"px"
        return e;
     }
     move(el){
