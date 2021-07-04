@@ -2,11 +2,12 @@ class Controller{
     constructor(data){
         this._game_area = data.gameArea;
         this._main_loop;
+        this._positions=[2,2.5,3.5,5,9]
         //Methods
        this.onStart()
     }
     onStart(){
-        const teste =[/*{nome:"Mario",posi:2.5},{nome:"Mike",posi:3.5},{nome:"Raimundo",posi:5},{nome:"Silver",posi:9},*/{nome:"Guia",posi:2}]
+        const teste =[{nome:"Guia",posi:this.positions[0]}]
         teste.forEach(play=>{
             new FlappyPc(this.game_area,play.posi,play.nome);
         })
@@ -34,6 +35,7 @@ class Controller{
     getPosition(el){
         return el.getBoundingClientRect()
     }
+    get positions(){return this._positions}
     get main_loop(){return this._main_loop}
     set main_loop(value){this._main_loop=value}
     get game_area(){return this._game_area}
