@@ -2,7 +2,7 @@ class FlappyPc{
     constructor(place,dis,name){
         this._place = place;
         this._direction=0;
-        this._vel=70;
+        this._vel=30;
         this._mainLoop;
         this.move(this.template(this.place,dis,name))
     }
@@ -11,7 +11,9 @@ class FlappyPc{
         for (let i = 0; i < $(".b").length; i++) {
             const barr_a = this.getPosition($(".a")[i]);
             const barr_b = this.getPosition($(".b")[i]);
-            if(IHave.x>=barr_b.x&&IHave.x<=barr_b.x+barr_b.width&&IHave.y+IHave.height>=barr_b.y||IHave.x>=barr_a.x&&IHave.x<=barr_a.x+barr_a.width&&IHave.y<=barr_a.y+barr_a.height){
+            if(IHave.x+IHave.width>=barr_b.x&&IHave.x+IHave.width<=barr_b.x+barr_b.width&&IHave.y+IHave.height>=barr_b.y
+                ||
+                IHave.x+IHave.width>=barr_a.x&&IHave.x+IHave.width<=barr_a.x+barr_a.width&&IHave.y<=barr_a.y+barr_a.height){
                 clearInterval(this.mainLoop)
                 I.$("img")[0].src="assets/images/explosion.gif"
                 setTimeout(()=>{I.remove();},800)
