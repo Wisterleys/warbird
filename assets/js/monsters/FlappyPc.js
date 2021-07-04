@@ -2,7 +2,7 @@ class FlappyPc{
     constructor(place,dis,name){
         this._place = place;
         this._direction=0;
-        this._vel=30;
+        this._vel=70;
         this._mainLoop;
         this.move(this.template(this.place,dis,name))
     }
