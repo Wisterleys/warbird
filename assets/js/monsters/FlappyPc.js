@@ -27,11 +27,11 @@ class FlappyPc{
             const barr_a = this.getPosition($(".a")[i]);
             const barr_b = this.getPosition($(".b")[i]);
             if(IHave.x>barr_b.x-250&&IHave.x<=barr_b.x){
-                if(IHave.y<barr_a.y+barr_a.height+5){
+                if(IHave.y<barr_a.y+barr_a.height){
                     direction=1;
                     break;
                 }
-                else if(IHave.y+IHave.height>barr_b.y-5){direction=-1;break;}
+                else if(IHave.y+IHave.height>barr_b.y){direction=-1;break;}
             }
         }
         return direction;
