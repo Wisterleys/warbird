@@ -1,0 +1,14 @@
+#cannon{
+    position: absolute;
+    width: 162px;
+    height: 70px;
+    left: 100%;
+    transform: translate(-100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#cannon img{
+    width: 100%;
+}
