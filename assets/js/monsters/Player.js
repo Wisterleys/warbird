@@ -3,9 +3,21 @@ class Player{
         this._place = place;
         this._direction=0;
         this._vel=20;
+        this.current_score=0
         this._mainLoop;
         this.move(this.template(this.place,dis,name))
         this.onControl()
+    }
+    toScore(I){
+        const IHave = this.getPosition(I)
+        for (let i = 0; i < $(".b").length; i++) {
+            const barr_a = this.getPosition($(".a")[i]);
+            const barr_b = this.getPosition($(".b")[i]);
+            if(IHave.x>barr_b.x+barr_b.width&&IHave.x<barr_b.x+barr_b.width+20){
+                this.current_score++
+                console.log(this.current_score)
+            }
+        }
     }
     die(I){
         const IHave = this.getPosition(I)
@@ -53,6 +65,8 @@ class Player{
     }
     move(el){
         this.mainLoop=setInterval(()=>{
+            this.toScore(el)
+            $("#score").innerText= this.current_score;
             $(".barreira")[0]?this.die(el):0
             if($("#control-all").value=="true"){
                 el.style.top=el.offsetTop+(this.direction*this.vel)+"px";
