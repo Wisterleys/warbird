@@ -39,11 +39,11 @@ class FlappyPc{
     }
     template(el,dis,name=""){
         /*
-            <div id="playerPC">
+            <div id="players">
             <img src="assets/images/passaro.png" alt="passaro">
             </div>
         */
-       let e = el.addEl({tag:"div",id:"playerPC"})
+       let e = el.addEl({tag:"div",class:"players"})
        e.addEl({tag:"div",insertTag:name,style:"margin:0px;padding:0px"})
        e.addEl({tag:"img",src:"assets/images/passaro.png",alt:"passaro"})
        const place = this.getPosition(this.place)

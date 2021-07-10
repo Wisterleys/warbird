@@ -2,7 +2,7 @@ class Controller{
     constructor(data){
         this._game_area = data.gameArea;
         this._main_loop;
-        this._positions=[2,2.5,3.5,5,9]
+        this._positions=[2,2.5,3.5,5,9]//0,1,2,3,4
         //Methods
        this.onStart()
     }
@@ -12,7 +12,7 @@ class Controller{
         teste.forEach(play=>{
             new FlappyPc(this.game_area,play.posi,play.nome);
         })
-        new Player(this.game_area,5,"Wister")
+        new Player(this.game_area,this.positions[4],"Wister")
         $("#control-all").value=null
         $("#start").on("click",e=>{
             this.start()

@@ -1,4 +1,4 @@
-#playerPC{
+.players{
     position: absolute;
     z-index: 3;
     width: 50px;
@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
 }
-#playerPC img{
+.players img{
     width: 100%;
 }
+
