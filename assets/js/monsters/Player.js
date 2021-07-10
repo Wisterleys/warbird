@@ -2,7 +2,7 @@ class Player{
     constructor(place,dis,name){
         this._place = place;
         this._direction=0;
-        this._vel=30;
+        this._vel=20;
         this._mainLoop;
         this.move(this.template(this.place,dis,name))
         this.onControl()
@@ -24,9 +24,13 @@ class Player{
     choice(value){
         switch(value){
             case"up":
+            case"ArrowUp":
+            case"w":
             this.direction=-1
             break;
             case"down":
+            case"s":
+            case"ArrowDown":
             this.direction=1
             break;
         }
@@ -37,6 +41,12 @@ class Player{
                 this.choice(e.target.id)
             })
             btn.on("touchend",e=>{
+                this.direction=0
+            })
+            document.addEventListener("keydown",e=>{
+                this.choice(e.key)
+            })
+            document.addEventListener("keyup",e=>{
                 this.direction=0
             })
         });
