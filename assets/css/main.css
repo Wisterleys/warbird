@@ -1,6 +1,7 @@
 @import url("barriers.css");
 @import url("flappybird.css");
 @import url("cannon.css");
+@import url("control.css");
 @font-face {
     font-family: "Pixel";
     src: url("../fonts/Pixel.ttf");

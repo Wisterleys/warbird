@@ -12,7 +12,7 @@ class Controller{
         teste.forEach(play=>{
             new FlappyPc(this.game_area,play.posi,play.nome);
         })
-      
+        new Player(this.game_area,5,"Wister")
         $("#control-all").value=null
         $("#start").on("click",e=>{
             this.start()

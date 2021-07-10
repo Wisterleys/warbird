@@ -15,11 +15,24 @@
             <button id="stop">STOP</button>
             <input type="hidden" id="control-all">
         </div>
-        
+        <div id="control-painel">
+            <div id="control">
+                <input id="up" class="btn-control" type="image" src="assets/images/arrow.svg" alt="" oncontextmenu="return false;">
+                <input id="left" class="btn-control" type="image" src="assets/images/arrow.svg" oncontextmenu="return false;">
+                <input id="right" class="btn-control" type="image" src="assets/images/arrow.svg" oncontextmenu="return false;">
+                <input id="down" class="btn-control" type="image" src="assets/images/arrow.svg" oncontextmenu="return false;">
+            </div>
+            <div class="control-actions">
+                <input id="shoot" class="btn-control" type="image" src="assets/images/shoot.svg" oncontextmenu="return false;" hidden>
+                <input id="run" class="btn-control" type="image" src="assets/images/run.svg" oncontextmenu="return false;" hidden>
+                <input id="super" class="btn-control" type="image" src="assets/images/super.svg" oncontextmenu="return false;">
+            </div>
+        </div>
     </div>
     <script src="assets/js/prototypes.js"></script>
     <script src="assets/js/monsters/Barriers.js"></script>
     <script src="assets/js/monsters/FlappyPc.js"></script>
+    <script src="assets/js/monsters/Player.js"></script>
     <script src="assets/js/monsters/Cannon.js"></script>
     <script src="assets/js/Controllers/Controller.js"></script>
     <script src="assets/js/main.js"></script>

@@ -2,7 +2,7 @@ class Player{
     constructor(place,dis,name){
         this._place = place;
         this._direction=0;
-        this._vel=70;
+        this._vel=30;
         this._mainLoop;
         this.move(this.template(this.place,dis,name))
         this.onControl()
@@ -33,17 +33,16 @@ class Player{
     }
     onControl(){
         $(".btn-control").forEach(btn => {
-            btn.on("touchstart mousedown",e=>{
+            btn.on("touchstart",e=>{
                 this.choice(e.target.id)
             })
-            btn.on("touchend mouseup",e=>{
+            btn.on("touchend",e=>{
                 this.direction=0
             })
         });
     }
     move(el){
         this.mainLoop=setInterval(()=>{
-            $(".barreira")[0]?this.direction=this.intelligence(el):0
             $(".barreira")[0]?this.die(el):0
             if($("#control-all").value=="true"){
                 el.style.top=el.offsetTop+(this.direction*this.vel)+"px";
