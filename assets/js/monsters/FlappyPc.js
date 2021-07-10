@@ -22,6 +22,7 @@ class FlappyPc{
     }
     intelligence(I){
         let direction=0;
+        this.vel=window.innerHeight<365?20:70;
         const IHave = this.getPosition(I)
         for (let i = 0; i < $(".b").length; i++) {
             const barr_a = this.getPosition($(".a")[i]);
