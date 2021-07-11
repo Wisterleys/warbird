@@ -19,3 +19,31 @@
 .cannon.hide{
     left: 200%;
 }
+.ball-cannon{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 2%;
+    left: 85%;
+    background: linear-gradient(90deg,black,black,white,black);
+    border-radius: 360px;
+    animation: ball .2s infinite;
+}
+@keyframes ball {
+    0%{
+        background: linear-gradient(90deg,black,black,white,black);
+    }
+    25%{
+        background: linear-gradient(45deg,black,black,white,black);
+    }
+    50%{
+        background: linear-gradient(-90deg,black,black,white,black);
+    }
+    75%{
+        background: linear-gradient(-180deg,black,black,white,black);
+    }
+    100%{
+        background: linear-gradient(90deg,black,black,white,black);
+    }
+}
+
