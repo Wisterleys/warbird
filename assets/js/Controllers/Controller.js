@@ -2,13 +2,21 @@ class Controller{
     constructor(data){
         this._game_area = data.gameArea;
         this._main_loop;
+        this.counter=true
         this._positions=[2,2.5,3.5,5,9]//0,1,2,3,4
         //Methods
        this.onStart()
     }
+    createCannon(){
+        if(this.counter){
+            if(parseInt($("#score").innerText)>=3){
+                new Cannon(this.game_area)
+                this.counter=false
+            }
+        }
+    }
     onStart(){
         const teste =[{nome:"Guia",posi:this.positions[0]}]
-        new Cannon(this.game_area)
         teste.forEach(play=>{
             new FlappyPc(this.game_area,play.posi,play.nome);
         })
@@ -46,6 +54,7 @@ class Controller{
             random =this.calculateBarriers(this.rand(100,1))
             new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
             new BarriersB([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
+            this.createCannon()
         },4000)
     }
     getPosition(el){

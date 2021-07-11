@@ -33,6 +33,16 @@ class Player{
                 setTimeout(()=>{I.remove();},800)
             }
         }
+        $(".cannonball").forEach(ball => {
+            let ba = this.getPosition(ball)
+            if(IHave.x>ba.x+ba.width&&IHave.x+IHave.width<=ba.x){
+                console.log(ba)
+                    clearInterval(this.mainLoop)
+                    I.$("img")[0].src="assets/images/explosion.gif"
+                    setTimeout(()=>{I.remove();},800)
+                }
+        });
+
     }
     choice(value){
         switch(value){
