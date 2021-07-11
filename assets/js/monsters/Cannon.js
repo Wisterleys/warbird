@@ -2,26 +2,16 @@ class Cannon{
     constructor(place){
         this._life=100
         this._place = place;
-        this._direction=0;
+        this._direction=1;
         this._vel=70;
         this._mainLoop;
         this.move(this.template(this.place))
     }
     intelligence(I){
-        let direction=0;
         const IHave = this.getPosition(I)
-        for (let i = 0; i < $(".b").length; i++) {
-            const barr_a = this.getPosition($(".a")[i]);
-            const barr_b = this.getPosition($(".b")[i]);
-            if(IHave.x>barr_b.x-250&&IHave.x<=barr_b.x){
-                if(IHave.y<barr_a.y+barr_a.height+5){
-                    direction=1;
-                    break;
-                }
-                else if(IHave.y+IHave.height>barr_b.y-5){direction=-1;break;}
-            }
-        }
-        return direction;
+        const place = this.getPosition(this.place)
+        if(IHave.y<1)this.direction=1
+        if(IHave.y+IHave.height>place.height)this.direction=-1
     }
     die(I){
         
@@ -44,7 +34,7 @@ class Cannon{
     }
     move(el){
         this.mainLoop=setInterval(()=>{
-            $(".barreira")[0]?this.direction=this.intelligence(el):0
+            $(".barreira")[0]?this.intelligence(el):0
             $(".barreira")[0]?this.die(el):0
             if($("#control-all").value=="true"){
                 this.life=$(".cannon")[0].attributes["life"].value
