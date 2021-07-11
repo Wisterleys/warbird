@@ -4,7 +4,6 @@ class Barriers{
         this._place=place;
         this._vel=this.color.vel
         this._random=color.height
-        console.log(this.random)
         this._mainLoop;
         this.move(this.place,this.template(this.place[0],this.color))
     }

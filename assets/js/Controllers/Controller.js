@@ -8,7 +8,7 @@ class Controller{
     }
     onStart(){
         const teste =[{nome:"Guia",posi:this.positions[0]}]
-        new Cannon(this.game_area)
+        //new Cannon(this.game_area)
         teste.forEach(play=>{
             new FlappyPc(this.game_area,play.posi,play.nome);
         })
@@ -37,8 +37,11 @@ class Controller{
     start(){
 
         let random =this.calculateBarriers(this.rand(100,1))
-        !$(".barreira")[0]?new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random}):0
-        !$(".barreira")[0]?new BarriersB([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random}):0
+        if(!$(".barreira")[0]){
+                new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random})
+                new BarriersB([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random})
+        }
+        
         this.main_loop=setInterval(e=>{
             random =this.calculateBarriers(this.rand(100,1))
             new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
