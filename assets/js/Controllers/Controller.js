@@ -8,7 +8,7 @@ class Controller{
     }
     onStart(){
         const teste =[{nome:"Guia",posi:this.positions[0]}]
-        //new Cannon(this.game_area)
+        new Cannon(this.game_area)
         teste.forEach(play=>{
             new FlappyPc(this.game_area,play.posi,play.nome);
         })

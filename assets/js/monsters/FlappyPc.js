@@ -13,7 +13,7 @@ class FlappyPc{
             const barr_b = this.getPosition($(".b")[i]);
             if(IHave.x+IHave.width>=barr_b.x&&IHave.x+IHave.width<=barr_b.x+barr_b.width&&IHave.y+IHave.height>=barr_b.y
                 ||
-                IHave.x+IHave.width>=barr_a.x&&IHave.x+IHave.width<=barr_a.x+barr_a.width&&IHave.y<=barr_a.y+barr_a.height){
+                IHave.x+IHave.width>=barr_a.x&&IHave.x+IHave.width<=barr_a.x+barr_a.width&&IHave.y<=barr_a.y+barr_a.height||$(".cannonball")[0]){
                 clearInterval(this.mainLoop)
                 I.$("img")[0].src="assets/images/explosion.gif"
                 setTimeout(()=>{I.remove();},800)

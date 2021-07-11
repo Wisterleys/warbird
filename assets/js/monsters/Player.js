@@ -9,12 +9,14 @@ class Player{
         this.onControl()
     }
     toScore(I){
-        const IHave = this.getPosition(I)
-        for (let i = 0; i < $(".b").length; i++) {
-            const barr_a = this.getPosition($(".a")[i]);
-            const barr_b = this.getPosition($(".b")[i]);
-            if(IHave.x>barr_a.x+barr_a.width-5&&IHave.x<barr_a.x+barr_a.width+5){
-                this.current_score++
+        if(!$(".cannonball")[0]){
+            const IHave = this.getPosition(I)
+            for (let i = 0; i < $(".b").length; i++) {
+                const barr_a = this.getPosition($(".a")[i]);
+                const barr_b = this.getPosition($(".b")[i]);
+                if(IHave.x>barr_a.x+barr_a.width-5&&IHave.x<barr_a.x+barr_a.width+5){
+                    this.current_score++
+                }
             }
         }
     }
@@ -87,7 +89,7 @@ class Player{
        return e;
     }
     getPosition(el){
-        return el.getBoundingClientRect()
+        return el?el.getBoundingClientRect():false
     }
     //GETs and SETs
     
