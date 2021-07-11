@@ -1,5 +1,6 @@
 class Cannon{
     constructor(place){
+        this._life=100
         this._place = place;
         this._direction=0;
         this._vel=70;
@@ -23,18 +24,12 @@ class Cannon{
         return direction;
     }
     die(I){
-        const IHave = this.getPosition(I)
-        for (let i = 0; i < $(".b").length; i++) {
-            const barr_a = this.getPosition($(".a")[i]);
-            const barr_b = this.getPosition($(".b")[i]);
-            if(IHave.x+IHave.width>=barr_b.x&&IHave.x+IHave.width<=barr_b.x+barr_b.width&&IHave.y+IHave.height>=barr_b.y
-                ||
-                IHave.x+IHave.width>=barr_a.x&&IHave.x+IHave.width<=barr_a.x+barr_a.width&&IHave.y<=barr_a.y+barr_a.height){
+        
+            if(this.life<1){
                 clearInterval(this.mainLoop)
                 I.$("img")[0].src="assets/images/explosion.gif"
                 setTimeout(()=>{I.remove();},800)
             }
-        }
     }
     template(el){
         /*
@@ -42,7 +37,8 @@ class Cannon{
             <img src="assets/images/Metallic_Cannon.png" alt="Cannon">
             </div>
         */
-       let e = el.addEl({tag:"div",id:"cannon"})
+       let e = el.addEl({tag:"div",class:"cannon",life:this.life})
+       e.addEl({tag:"div",class:"life",style:`width:${this.life}%;height:5px;background:red;`})
        e.addEl({tag:"img",src:"assets/images/Metallic_Cannon.png",alt:"Cannon"})
        return e;
     }
@@ -51,6 +47,8 @@ class Cannon{
             $(".barreira")[0]?this.direction=this.intelligence(el):0
             $(".barreira")[0]?this.die(el):0
             if($("#control-all").value=="true"){
+                this.life=$(".cannon")[0].attributes["life"].value
+                el.$(".life")[0].style.width=this.life+"%";
                 el.style.top=el.offsetTop+(this.direction*this.vel)+"px";
             }
         },100)
@@ -59,7 +57,8 @@ class Cannon{
         return el.getBoundingClientRect()
     }
     //GETs and SETs
-    
+    get life(){return this._life;}
+    set life(value){this._life=value}
     get mainLoop(){return this._mainLoop;}
     set mainLoop(value){this._mainLoop=value}
     get direction(){return this._direction;}
