@@ -6,6 +6,7 @@ class Cannon{
         this._vel=70;
         this._mainLoop;
         this.move(this.template(this.place))
+       
     }
     intelligence(I){
         const IHave = this.getPosition(I)
@@ -33,13 +34,22 @@ class Cannon{
        return e;
     }
     move(el){
+        this.shootLoop=setInterval(()=>{
+            this.intelligence(el)
+            this.die(el)
+            if($("#control-all").value=="true"){
+                //shoot
+                new BallOfCannon(this.place,this.getPosition(el))
+            }
+        },1000)
         this.mainLoop=setInterval(()=>{
-            $(".barreira")[0]?this.intelligence(el):0
-            $(".barreira")[0]?this.die(el):0
+            this.intelligence(el)
+            this.die(el)
             if($("#control-all").value=="true"){
                 this.life=$(".cannon")[0].attributes["life"].value
                 el.$(".life")[0].style.width=this.life+"%";
                 el.style.top=el.offsetTop+(this.direction*this.vel)+"px";
+          
             }
         },100)
     }

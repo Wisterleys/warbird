@@ -23,11 +23,16 @@
     position: absolute;
     width: 35px;
     height: 35px;
-    top: 2%;
-    left: 85%;
+    z-index: 99;
     background: linear-gradient(90deg,black,black,white,black);
     border-radius: 360px;
     animation: ball .2s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ball-cannon img{
+    width: 100%;
 }
 @keyframes ball {
     0%{
