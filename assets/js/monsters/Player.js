@@ -13,9 +13,8 @@ class Player{
         for (let i = 0; i < $(".b").length; i++) {
             const barr_a = this.getPosition($(".a")[i]);
             const barr_b = this.getPosition($(".b")[i]);
-            if(IHave.x>barr_b.x+barr_b.width&&IHave.x<barr_b.x+barr_b.width+20){
+            if(IHave.x>barr_a.x+barr_a.width-5&&IHave.x<barr_a.x+barr_a.width+5){
                 this.current_score++
-                console.log(this.current_score)
             }
         }
     }
