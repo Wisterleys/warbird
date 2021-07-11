@@ -35,8 +35,6 @@ class Cannon{
     }
     move(el){
         this.shootLoop=setInterval(()=>{
-            this.intelligence(el)
-            this.die(el)
             if($("#control-all").value=="true"){
                 //shoot
                 new BallOfCannon(this.place,this.getPosition(el))

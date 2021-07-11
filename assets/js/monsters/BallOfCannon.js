@@ -2,25 +2,24 @@ class BallOfCannon{
     constructor(place,data){
         this._place = place;
         this._direction=-1;
-        this._vel=90;
+        this._vel=60;
         this._mainLoop;
         this._data=data;
         this.move(this.template(this.place))
     }
     die(I){
-        if(I.offsetLeft<0){
+        if(I.offsetLeft<I.offsetHeight*2){
             clearInterval(this.mainLoop)
             I.$("img")[0].src="assets/images/explosion.gif"
-            I.$("img")[0].hidden=false
             setTimeout(()=>{I.remove();},800)
         }
     }
     template(el){
         /*
-            <div class="ball-cannon"></div>
+            <div class="cannonball"></div>
         */
-       let e = el.addEl({tag:"div",class:"ball-cannon"})
-       e.addEl({tag:"img",src:"",alt:"explo"}).hidden=true
+       let e = el.addEl({tag:"div",class:"cannonball"})
+       e.addEl({tag:"img",src:"assets/images/Cannonball.png",alt:"ball"})
        e.style.left=this.data.x+"px";
        e.style.top=this.data.y+((this.data.height/2)-(e.offsetHeight/3))+"px";
        return e;

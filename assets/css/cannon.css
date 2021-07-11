@@ -19,22 +19,21 @@
 .cannon.hide{
     left: 200%;
 }
-.ball-cannon{
+.cannonball{
     position: absolute;
     width: 35px;
     height: 35px;
     z-index: 99;
-    background: linear-gradient(90deg,black,black,white,black);
     border-radius: 360px;
     animation: ball .2s infinite;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.ball-cannon img{
+.cannonball img{
     width: 100%;
 }
-@keyframes ball {
+/* @keyframes ball {
     0%{
         background: linear-gradient(90deg,black,black,white,black);
     }
@@ -50,5 +49,5 @@
     100%{
         background: linear-gradient(90deg,black,black,white,black);
     }
-}
+} */
 

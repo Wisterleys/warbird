@@ -27,10 +27,22 @@ class Controller{
             $("#control-all").value=false
         })
     }
+    rand(max,min){
+        return Math.random() * (max - min) + min;
+    }
+    calculateBarriers(number){
+        const res = 100-number
+        return {up:(number-20)>0?number-20:1,down:res>0?res>80?80:res:1};
+    }
     start(){
-        !$(".barreira")[0]?new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10}):0
+
+        let random =this.calculateBarriers(this.rand(100,1))
+        !$(".barreira")[0]?new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random}):0
+        !$(".barreira")[0]?new BarriersB([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random}):0
         this.main_loop=setInterval(e=>{
-            new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10});
+            random =this.calculateBarriers(this.rand(100,1))
+            new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
+            new BarriersB([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
         },4000)
     }
     getPosition(el){
