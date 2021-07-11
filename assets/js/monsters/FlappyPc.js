@@ -22,12 +22,16 @@ class FlappyPc{
     }
     intelligence(I){
         let direction=0;
-        this.vel=window.innerHeight<365?20:70;
+        //this.vel=window.innerHeight<365?20:70;
         const IHave = this.getPosition(I)
         for (let i = 0; i < $(".b").length; i++) {
             const barr_a = this.getPosition($(".a")[i]);
             const barr_b = this.getPosition($(".b")[i]);
             if(IHave.x>barr_b.x-250&&IHave.x<=barr_b.x){
+                //brakes
+                IHave.x>barr_a.x-150&&IHave.x<=barr_a.x&&IHave.y+IHave.height>=barr_a.y+barr_a.height&&IHave.y+IHave.height<=barr_b.y
+                ?this.vel=20:this.vel=70
+                //----------------------------------------------------------------------------------------------
                 if(IHave.y<barr_a.y+barr_a.height){
                     direction=1;
                     break;
