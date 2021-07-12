@@ -37,7 +37,7 @@ class Cannon{
         this.shootLoop=setInterval(()=>{
             if($("#control-all").value=="true"){
                 //shoot
-                new BallOfCannon(this.place,this.getPosition(el))
+                new Cannonball(this.place,this.getPosition(el))
             }
         },1000)
         this.mainLoop=setInterval(()=>{

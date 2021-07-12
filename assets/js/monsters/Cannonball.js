@@ -1,4 +1,4 @@
-class BallOfCannon{
+class Cannonball{
     constructor(place,data){
         this._place = place;
         this._direction=-1;

@@ -21,27 +21,19 @@ class Player{
         }
     }
     die(I){
+        let life = parseInt(I.attributes["life"].value)
         const IHave = this.getPosition(I)
         for (let i = 0; i < $(".b").length; i++) {
             const barr_a = this.getPosition($(".a")[i]);
             const barr_b = this.getPosition($(".b")[i]);
             if(IHave.x+IHave.width>=barr_b.x&&IHave.x+IHave.width<=barr_b.x+barr_b.width&&IHave.y+IHave.height>=barr_b.y
                 ||
-                IHave.x+IHave.width>=barr_a.x&&IHave.x+IHave.width<=barr_a.x+barr_a.width&&IHave.y<=barr_a.y+barr_a.height){
+                IHave.x+IHave.width>=barr_a.x&&IHave.x+IHave.width<=barr_a.x+barr_a.width&&IHave.y<=barr_a.y+barr_a.height||life<1){
                 clearInterval(this.mainLoop)
                 I.$("img")[0].src="assets/images/explosion.gif"
                 setTimeout(()=>{I.remove();},800)
             }
         }
-        $(".cannonball").forEach(ball => {
-            let ba = this.getPosition(ball)
-            if(IHave.x>ba.x+ba.width&&IHave.x+IHave.width<=ba.x){
-                console.log(ba)
-                    clearInterval(this.mainLoop)
-                    I.$("img")[0].src="assets/images/explosion.gif"
-                    setTimeout(()=>{I.remove();},800)
-                }
-        });
 
     }
     choice(value){
@@ -90,7 +82,7 @@ class Player{
             <img src="assets/images/passaro.png" alt="passaro">
             </div>
         */
-       let e = el.addEl({tag:"div",class:"players"})
+       let e = el.addEl({tag:"div",class:"players",life:100})
        e.addEl({tag:"div",insertTag:name,style:"margin:0px;padding:0px"})
        e.addEl({tag:"img",src:"assets/images/passaro.png",alt:"passaro"})
        const place = this.getPosition(this.place)
