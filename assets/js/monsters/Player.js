@@ -71,9 +71,9 @@ class Player{
             this.toScore(el)
             $("#score").innerText= this.current_score;
             $(".barreira")[0]?this.die(el):0
-            if($("#control-all").value=="true"){
+            //if($("#control-all").value=="true"){
                 el.style.top=el.offsetTop+(this.direction*this.vel)+"px";
-            }
+           // }
         },100)
     }
     template(el,dis,name=""){
@@ -82,7 +82,7 @@ class Player{
             <img src="assets/images/passaro.png" alt="passaro">
             </div>
         */
-       let e = el.addEl({tag:"div",class:"players",life:100})
+       let e = el.addEl({tag:"div",class:"players",life:100,id:"I"})
        e.addEl({tag:"div",insertTag:name,style:"margin:0px;padding:0px"})
        e.addEl({tag:"img",src:"assets/images/passaro.png",alt:"passaro"})
        const place = this.getPosition(this.place)

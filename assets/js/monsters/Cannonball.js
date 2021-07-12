@@ -24,9 +24,20 @@ class Cannonball{
        e.style.top=this.data.y+((this.data.height/2)-(e.offsetHeight/3))+"px";
        return e;
     }
+    getAtt(I,name){return parseInt(I.attributes[name].value)}
+    colision(ball){
+        if($("#I")){
+            const b = this.getPosition(ball)
+            const play = this.getPosition($("#I"));
+            if(play.x+play.width>=b.x&&b.y>=play.y&&b.y+b.height<=play.y+play.height){
+                $("#I").setAttribute("life", "0");
+            }
+        }
+    }
     move(el){
         this.mainLoop=setInterval(()=>{
             this.die(el)
+            this.colision(el);
            if($("#control-all").value=="true"){
                 el.style.left=el.offsetLeft+(this.direction*this.vel)+"px";
            }

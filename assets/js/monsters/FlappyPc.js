@@ -47,7 +47,7 @@ class FlappyPc{
             <img src="assets/images/passaro.png" alt="passaro">
             </div>
         */
-       let e = el.addEl({tag:"div",class:"players"})
+       let e = el.addEl({tag:"div",class:"players",id:"pc"})
        e.addEl({tag:"div",insertTag:name,style:"margin:0px;padding:0px"})
        e.addEl({tag:"img",src:"assets/images/passaro.png",alt:"passaro"})
        const place = this.getPosition(this.place)
