@@ -71,9 +71,9 @@ class Player{
             this.toScore(el)
             $("#score").innerText= this.current_score;
             $(".barreira")[0]?this.die(el):0
-            //if($("#control-all").value=="true"){
+            if($("#control-all").value=="true"){
                 el.style.top=el.offsetTop+(this.direction*this.vel)+"px";
-           // }
+            }
         },100)
     }
     template(el,dis,name=""){
