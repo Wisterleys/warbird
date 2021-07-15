@@ -24,11 +24,13 @@ class Controller{
         $("#control-all").value=null
         $("#start").on("click",e=>{
             this.start()
+            $(".modal")[0].classList.add("hide")
             $("#start").disabled=true
             $("#stop").disabled=false
             $("#control-all").value=true
         })
         $("#stop").on("click",e=>{
+            $(".modal")[0].classList.remove("hide")
             clearInterval(this.main_loop)
             $("#start").disabled=false
             $("#stop").disabled=true
@@ -43,7 +45,6 @@ class Controller{
         return {up:(number-20)>0?number-20:1,down:res>0?res>80?80:res:1};
     }
     start(){
-
         let random =this.calculateBarriers(this.rand(100,1))
         if(!$(".barreira")[0]){
                 new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random})

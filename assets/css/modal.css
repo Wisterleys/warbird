@@ -1,0 +1,17 @@
+.modal{
+    position: absolute;
+    visibility: visible;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    background: rgba(0, 0, 0, .7);
+    transition: all .2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal.hide{
+    visibility: hidden;
+}

@@ -25,11 +25,15 @@ class Cannonball{
        return e;
     }
     getAtt(I,name){return parseInt(I.attributes[name].value)}
+    
+    collisionScript(element,targ){
+        const el = this.getPosition(element)
+        const target = this.getPosition(targ);
+        return el.x+el.width>target.x&&el.x<target.x+target.width&&el.y+el.height>=target.y&&el.y<=target.y+target.height
+    }
     colision(ball){
         if($("#I")){
-            const b = this.getPosition(ball)
-            const play = this.getPosition($("#I"));
-            if(play.x+play.width>=b.x&&b.y>=play.y&&b.y+b.height<=play.y+play.height){
+            if(this.collisionScript(ball,$("#I"))){
                 $("#I").setAttribute("life", "0");
             }
         }
