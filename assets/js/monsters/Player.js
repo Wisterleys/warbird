@@ -5,6 +5,7 @@ class Player{
         this._vel=20;
         this.current_score=0
         this._mainLoop;
+        this.name=null;
         this.move(this.template(this.place,dis,name))
         this.onControl()
     }
@@ -31,7 +32,7 @@ class Player{
                 IHave.x+IHave.width>=barr_a.x&&IHave.x+IHave.width<=barr_a.x+barr_a.width&&IHave.y<=barr_a.y+barr_a.height||life<1){
                 clearInterval(this.mainLoop)
                 I.$("img")[0].src="assets/images/explosion.gif"
-                setTimeout(()=>{I.remove();},800)
+                setTimeout(()=>{I.remove();$(".youlose")[0].classList.remove("hide");$("#resu").value=this.current_score},800)
             }
         }
 
@@ -68,7 +69,9 @@ class Player{
     }
     move(el){
         this.mainLoop=setInterval(()=>{
+            this.name=el.getAttribute("name")
             this.toScore(el)
+            this.name?el.$("#flap").innerText=this.name:0
             $("#score").innerText= this.current_score;
             $(".barreira")[0]?this.die(el):0
             if($("#control-all").value=="true"){
@@ -82,8 +85,8 @@ class Player{
             <img src="assets/images/passaro.png" alt="passaro">
             </div>
         */
-       let e = el.addEl({tag:"div",class:"players",life:100,id:"I"})
-       e.addEl({tag:"div",insertTag:name,style:"margin:0px;padding:0px"})
+       let e = el.addEl({tag:"div",class:"players",life:100,id:"I",name:"Fulano"})
+       e.addEl({tag:"div",insertTag:name,style:"margin:0px;padding:0px",id:"flap"})
        e.addEl({tag:"img",src:"assets/images/passaro.png",alt:"passaro"})
        const place = this.getPosition(this.place)
        e.style.top=place.height/2+"px"

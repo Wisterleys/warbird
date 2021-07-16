@@ -10,6 +10,7 @@
 html,body{
     padding: 0px;
     margin: 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +24,7 @@ html,body{
     background-color: deepskyblue;
     overflow: hidden;
 }
-#place-game *{font-family: Pixel;}
+
 
 #painel{
     position: absolute;

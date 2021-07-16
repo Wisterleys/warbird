@@ -20,14 +20,16 @@ class Controller{
         teste.forEach(play=>{
             new FlappyPc(this.game_area,play.posi,play.nome);
         })
-        new Player(this.game_area,this.positions[4],"Wister")
+        new Player(this.game_area,this.positions[4],"fulano")
         $("#control-all").value=null
+        $("#restart").on("click",e=>{document.location.reload()})
         $("#start").on("click",e=>{
             this.start()
             $(".modal")[0].classList.add("hide")
             $("#start").disabled=true
             $("#stop").disabled=false
             $("#control-all").value=true
+            $("#I").setAttribute("name",$("#name").value?$("#name").value:"Fulano")
         })
         $("#stop").on("click",e=>{
             $(".modal")[0].classList.remove("hide")
