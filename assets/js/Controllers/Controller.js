@@ -9,7 +9,7 @@ class Controller{
     }
     createCannon(){
         if(this.counter){
-            if(parseInt($("#score").innerText)>=3){
+            if(parseInt($("#score").innerText)>=20){
                 new Cannon(this.game_area)
                 this.counter=false
             }
