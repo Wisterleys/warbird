@@ -12,11 +12,19 @@ class Player{
     toScore(I){
         if(!$(".cannonball")[0]){
             const IHave = this.getPosition(I)
-            for (let i = 0; i < $(".b").length; i++) {
+            for (let i = 0; i < $(".barreira").length; i++) {
                 const barr_a = this.getPosition($(".a")[i]);
-                const barr_b = this.getPosition($(".b")[i]);
                 if(IHave.x>barr_a.x+barr_a.width-5&&IHave.x<barr_a.x+barr_a.width+5){
                     this.current_score++
+                }
+            }
+        }else{
+            const IHave = this.getPosition(I)
+            for (let i = 0; i < $(".cannonball").length; i++) {
+                const ball = this.getPosition($(".cannonball")[i]);
+                if(IHave.x+IHave.width>ball.x&&IHave.x+IHave.width<ball.x+ball.width){
+                    this.current_score++
+
                 }
             }
         }
