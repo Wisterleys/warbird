@@ -11,6 +11,7 @@ class Cannonball{
     die(I){
         if(I.offsetLeft<I.offsetHeight*2){
             clearInterval(this.mainLoop)
+            this.audio.currentTime=0
             this.audio.play()
             I.$("img")[0].src="assets/images/explosion.gif"
             setTimeout(()=>{I.remove();},800)
