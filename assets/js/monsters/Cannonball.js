@@ -1,5 +1,6 @@
 class Cannonball{
     constructor(place,data){
+        this.audio = new Audio("assets/sounds/Explosion.mp3")
         this._place = place;
         this._direction=-1;
         this._vel=60;
@@ -10,6 +11,7 @@ class Cannonball{
     die(I){
         if(I.offsetLeft<I.offsetHeight*2){
             clearInterval(this.mainLoop)
+            this.audio.play()
             I.$("img")[0].src="assets/images/explosion.gif"
             setTimeout(()=>{I.remove();},800)
         }

@@ -1,5 +1,6 @@
 class Player{
     constructor(place,dis,name){
+        this.audio = new Audio("assets/sounds/Explosion.mp3")
         this._place = place;
         this._direction=0;
         this._vel=20;
@@ -24,7 +25,6 @@ class Player{
                 const ball = this.getPosition($(".cannonball")[i]);
                 if(IHave.x+IHave.width>ball.x&&IHave.x+IHave.width<ball.x+ball.width){
                     this.current_score++
-
                 }
             }
         }
@@ -39,6 +39,8 @@ class Player{
                 ||
                 IHave.x+IHave.width>=barr_a.x&&IHave.x+IHave.width<=barr_a.x+barr_a.width&&IHave.y<=barr_a.y+barr_a.height||life<1){
                 clearInterval(this.mainLoop)
+                this.audio.currentTime=0
+                this.audio.play();
                 I.$("img")[0].src="assets/images/explosion.gif"
                 setTimeout(()=>{I.remove();$(".youlose")[0].classList.remove("hide");$("#resu").value=this.current_score},800)
             }

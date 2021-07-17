@@ -1,5 +1,6 @@
 class Cannon{
     constructor(place){
+        this.audio = new Audio("assets/sounds/mixkit-arcade-game-explosion-2759.wav")
         this._life=100
         this._place = place;
         this._direction=1;
@@ -37,6 +38,8 @@ class Cannon{
         this.shootLoop=setInterval(()=>{
             if($("#control-all").value=="true"){
                 //shoot
+                this.audio.currentTime=0
+                this.audio.play();
                 new Cannonball(this.place,this.getPosition(el))
             }
         },1000)

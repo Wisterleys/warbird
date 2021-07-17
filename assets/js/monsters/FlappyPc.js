@@ -1,5 +1,6 @@
 class FlappyPc{
     constructor(place,dis,name){
+        this.audio = new Audio("assets/sounds/Explosion.mp3")
         this._place = place;
         this._direction=0;
         this._vel=70;
@@ -15,6 +16,8 @@ class FlappyPc{
                 ||
                 IHave.x+IHave.width>=barr_a.x&&IHave.x+IHave.width<=barr_a.x+barr_a.width&&IHave.y<=barr_a.y+barr_a.height||$(".cannonball")[0]){
                 clearInterval(this.mainLoop)
+                this.audio.currentTime=0
+                this.audio.play();
                 I.$("img")[0].src="assets/images/explosion.gif"
                 setTimeout(()=>{I.remove();},800)
             }
