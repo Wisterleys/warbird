@@ -1,5 +1,6 @@
 class Controller{
     constructor(data){
+        this.audio = new Audio("assets/sounds/geral.mp3")
         this._game_area = data.gameArea;
         this._main_loop;
         this.counter=true
@@ -25,6 +26,8 @@ class Controller{
         $("#restart").on("click",e=>{document.location.reload()})
         $("#start").on("click",e=>{
             this.start()
+            this.audio.currentTime=0
+            this.audio.play()
             $(".modal")[0].classList.add("hide")
             $("#start").disabled=true
             $("#stop").disabled=false
@@ -32,6 +35,7 @@ class Controller{
             $("#I").setAttribute("name",$("#name").value?$("#name").value:"Fulano")
         })
         $("#stop").on("click",e=>{
+            this.audio.pause()
             $(".modal")[0].classList.remove("hide")
             clearInterval(this.main_loop)
             $("#start").disabled=false
@@ -54,6 +58,7 @@ class Controller{
         }
         
         this.main_loop=setInterval(e=>{
+            this.audio.currentTime>6?this.audio.currentTime=0:0
             random =this.calculateBarriers(this.rand(100,1))
             new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
             new BarriersB([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
