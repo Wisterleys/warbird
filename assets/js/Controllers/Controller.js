@@ -27,7 +27,7 @@ class Controller{
         $("#start").on("click",e=>{
             this.start()
             this.audio.currentTime=0
-            this.audio.play()
+            //this.audio.play()
             $(".modal")[0].classList.add("hide")
             $("#start").disabled=true
             $("#stop").disabled=false
@@ -35,7 +35,7 @@ class Controller{
             $("#I").setAttribute("name",$("#name").value?$("#name").value:"Fulano")
         })
         $("#stop").on("click",e=>{
-            this.audio.pause()
+            //this.audio.pause()
             $(".modal")[0].classList.remove("hide")
             clearInterval(this.main_loop)
             $("#start").disabled=false
