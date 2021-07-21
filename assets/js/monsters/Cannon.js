@@ -21,6 +21,7 @@ class Cannon{
         }
         else{
             this.shoot=false
+            I.classList.add("hide")
             /* if(IHave.y<1)this.direction=1
             if(IHave.y+IHave.height>place.height)this.direction=-1 */
         }

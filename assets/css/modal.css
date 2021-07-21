@@ -21,7 +21,7 @@
     height: 350px;
     border-style: outset;
     display: flex;
-    background: black;
+    background: rgb(83, 70, 70);
     color: white;
     flex-direction: column;
     justify-content:space-evenly
