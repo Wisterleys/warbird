@@ -10,7 +10,7 @@ class Controller{
     }
     createCannon(){
         if(this.counter){
-            if(parseInt($("#score").innerText)>=20){
+            if(parseInt($("#score").innerText)>=1){
                 new Cannon(this.game_area)
                 this.counter=false
             }
@@ -21,7 +21,7 @@ class Controller{
         teste.forEach(play=>{
             new FlappyPc(this.game_area,play.posi,play.nome);
         })
-        new Player(this.game_area,this.positions[4],"fulano")
+        new Player(this.game_area,this.positions[4],"")
         $("#control-all").value=null
         $("#restart").on("click",e=>{document.location.reload()})
         $("#start").on("click",e=>{

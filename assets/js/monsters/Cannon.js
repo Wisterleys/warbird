@@ -6,14 +6,24 @@ class Cannon{
         this._direction=1;
         this._vel=70;
         this._mainLoop;
+        this.shoot=true
         this.move(this.template(this.place))
        
     }
     intelligence(I){
         const IHave = this.getPosition(I)
         const place = this.getPosition(this.place)
-        if(IHave.y<1)this.direction=1
-        if(IHave.y+IHave.height>place.height)this.direction=-1
+        const bird = this.getPosition($("#I"))
+        if($("#I")){
+            IHave.y+IHave.height/2<bird.y?this.direction=1:0
+            IHave.y+IHave.height/2>bird.y&&IHave.y+IHave.height/2<bird.y+bird.height?this.direction=0:0
+            IHave.y+IHave.height/2>bird.y+bird.height?this.direction=-1:0
+        }
+        else{
+            this.shoot=false
+            /* if(IHave.y<1)this.direction=1
+            if(IHave.y+IHave.height>place.height)this.direction=-1 */
+        }
     }
     die(I){
         
@@ -36,7 +46,7 @@ class Cannon{
     }
     move(el){
         this.shootLoop=setInterval(()=>{
-            if($("#control-all").value=="true"){
+            if($("#control-all").value=="true"&&this.shoot){
                 //shoot
                 this.audio.currentTime=0
                 this.audio.play();
@@ -55,7 +65,7 @@ class Cannon{
         },100)
     }
     getPosition(el){
-        return el.getBoundingClientRect()
+        return el?el.getBoundingClientRect():false
     }
     //GETs and SETs
     get life(){return this._life;}
