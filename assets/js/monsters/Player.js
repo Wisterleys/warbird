@@ -95,7 +95,7 @@ class Player{
             <img src="assets/images/passaro.png" alt="passaro">
             </div>
         */
-       let e = el.addEl({tag:"div",class:"players",life:100,id:"I",name:"Fulano"})
+       let e = el.addEl({tag:"div",class:"players",life:100,id:"I",name:""})
        e.addEl({tag:"div",insertTag:name,style:"margin:0px;padding:0px",id:"flap"})
        e.addEl({tag:"img",src:"assets/images/passaro.png",alt:"passaro"})
        const place = this.getPosition(this.place)
