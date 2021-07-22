@@ -32,7 +32,7 @@ class Controller{
             $("#start").disabled=true
             $("#stop").disabled=false
             $("#control-all").value=true
-            $("#I").setAttribute("name",$("#name").value?$("#name").value:"")
+            $("#I").setAttribute("name",$("#name").value?$("#name").value:"Fulano")
         })
         $("#stop").on("click",e=>{
             //this.audio.pause()
