@@ -68,7 +68,7 @@ class FlappyPc{
         },100)
     }
     getPosition(el){
-        return el.getBoundingClientRect()
+        return el?el.getBoundingClientRect():false
     }
     //GETs and SETs
     

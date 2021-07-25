@@ -10,8 +10,9 @@ class Controller{
     }
     createCannon(){
         if(this.counter){
-            if(parseInt($("#score").innerText)>=20){
+            if(parseInt($("#score").innerText)>=2){
                 new Cannon(this.game_area)
+               // $("#shoot").disabled=false
                 this.counter=false
             }
         }
@@ -41,6 +42,13 @@ class Controller{
             $("#start").disabled=false
             $("#stop").disabled=true
             $("#control-all").value=false
+        })
+        $("#shoot").on("click",e=>{
+            if($("#I")){
+                const bird = this.getPosition($("#I"))
+                new WhiteLord(this.game_area,bird.x,bird.y)
+                e.target.value = e.target.value>0?e.target.value-1:e.target.value
+            }
         })
     }
     rand(max,min){

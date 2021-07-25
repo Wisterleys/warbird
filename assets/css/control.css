@@ -51,7 +51,7 @@
     font-weight: bolder;
     color: rgb(0, 0, 0);
     font-size: 300%;
-    background: url("../js/monsters/WhiteLord/_img/Ornah2.png") -87px -139px;
+    background: url("../js/monsters/WhiteLord/img/Ornah2.png") -87px -139px;
     grid-area: s;
     width: 100%;
 }

@@ -234,7 +234,7 @@ class WhiteLord{
         el.style.width="35px"
         el.style.height="67px"
         //el.style.border="1px solid red"
-        el.style.background="url(WhiteLord/_img/Ornah2.png)-105px -139px"
+        el.style.background="url(assets/js/monsters/WhiteLord/img/Ornah2.png)-105px -139px"
         el.style.zIndex=2;
         el.innerHTML=`<progress value="70" max="100" style="position:relative;top:-15px;display:block;float:right;width:30px;">70 %</progress>`
     }

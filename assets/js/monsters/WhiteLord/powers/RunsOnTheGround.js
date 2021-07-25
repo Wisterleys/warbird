@@ -1,7 +1,7 @@
 class RunsOnTheGround{
     constructor(insideTheElement,power,dx,target){
         this._power=power;
-        this._sound=new Audio("WhiteLord/sounds/Torpedo+Explosion.mp3")
+        this._sound=new Audio("assets/js/monsters/WhiteLord/sounds/Torpedo+Explosion.mp3")
         this._insideTheElement=insideTheElement
         this._target=target
         this._dx=dx
@@ -24,7 +24,7 @@ class RunsOnTheGround{
         let px=this.power.offsetLeft;
         this.mainLoopID=setInterval(() => {
             px+=(this.dx>-1?1:-1)*10
-            this.power.style.background=`url(WhiteLord/_img/Ornah2.png)${this.positions[counter]}`
+            this.power.style.background=`url(assets/js/monsters/WhiteLord/img/Ornah2.png)${this.positions[counter]}`
             this.power.style.left=px+"px"
             this.power.style.transform=this.dx>-1?"rotateY(180deg)":"rotateY(0deg)"
             if(this.power.offsetWidth+this.power.offsetLeft<0||this.power.offsetLeft>this.power.parentNode.offsetWidth){
@@ -36,7 +36,7 @@ class RunsOnTheGround{
                 clearInterval(this.mainLoopID)
                 this.power.style.width="50px"
                 this.power.style.height="55px"
-                this.power.style.background=`url(WhiteLord/_img/efeitos/gif-explosion-77.gif)-2px -110px`
+                this.power.style.background=`urlassets/js/monsters/WhiteLord/img/efeitos/gif-explosion-77.gif)-2px -110px`
                 this.power.style.backgroundSize="100% 100%"
                 this.sound.currentTime=0;
                 this.sound?this.sound.play():0
