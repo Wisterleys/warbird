@@ -40,7 +40,7 @@ class Cannon{
             <img src="assets/images/Metallic_Cannon.png" alt="Cannon">
             </div>
         */
-       let e = el.addEl({tag:"div",class:"cannon",life:this.life})
+       let e = el.addEl({tag:"div",class:"cannon",life:this.life,id:"cann"})
        e.addEl({tag:"div",class:"life",style:`width:${this.life}%;height:5px;background:red;`})
        e.addEl({tag:"img",src:"assets/images/Metallic_Cannon.png",alt:"Cannon"})
        return e;

@@ -36,7 +36,7 @@ class RunsOnTheGround{
                 clearInterval(this.mainLoopID)
                 this.power.style.width="50px"
                 this.power.style.height="55px"
-                this.power.style.background=`urlassets/js/monsters/WhiteLord/img/efeitos/gif-explosion-77.gif)-2px -110px`
+                this.power.style.background=`url(assets/js/monsters/WhiteLord/img/efeitos/gif-explosion-77.gif)-2px -110px`
                 this.power.style.backgroundSize="100% 100%"
                 this.sound.currentTime=0;
                 this.sound?this.sound.play():0

@@ -2,6 +2,7 @@ class WhiteLord{
     constructor(local,dx,dy){
         this._screenW=local.offsetWidth
         this._screenH=local.offsetHeight
+        this.monsterTarget = "#cann"
         this.local=local
         this.loop
         this._life=1000
@@ -15,7 +16,7 @@ class WhiteLord{
             powerPositionThree:["-108px -30px","-175px -30px","-241px -30px","-315px -30px"],
             deathMode:["-214px -270px","-270px -270px","-315px -267px","-358px -267px","-315px -350px"]
         }
-        this._allModes=["attackMode",/* "attackModeTwo", */"standby"]//Modos 
+        this._allModes=["attackMode","standby"]//Modos 
         this._toExchange;
         this._whiteLord=this.createElement(this.local,"div","powerThree","false")
         this.dix=1
@@ -33,7 +34,7 @@ class WhiteLord{
     }
     //INTELIGENCIA VAI VERIFICAR SE EXISTE O PLAYER E SORTEAR QUAL MODO USAR
     intelligence(){
-       if(document.querySelector("#player")){
+       if(document.querySelector(this.monsterTarget)){
            let target=document.querySelector("#I")
         switch(this.allModes[Math.floor(Math.random()*((this.allModes.length-1)-0+1)+0) ]){
             case"attackMode":
@@ -100,7 +101,7 @@ class WhiteLord{
     }
     attackMode(){
         if(this.life>0){
-            let target=document.querySelector("#player")
+            let target=document.querySelector(this.monsterTarget)
             let cl1=true
             let cl2=true
             let attackIsTrue=false;
@@ -169,9 +170,10 @@ class WhiteLord{
     }
     standby(speed,time,){
         speed?this.speed=speed:0
+        this.dx?0: this.dx=1
+        this.dy?0: this.dy=1
         if(this.life>0){
             let loop=setInterval(()=>{
-            
                 this.landing()
                 if(this.screenW<this.whiteLord.offsetLeft+this.whiteLord.offsetWidth+this.speed){
                     this.toExchange=this.positions.fly

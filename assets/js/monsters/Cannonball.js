@@ -39,6 +39,11 @@ class Cannonball{
             if(this.collisionScript(ball,$("#I"))){
                 $("#I").setAttribute("life", "0");
             }
+            $(".monsters").forEach(monster => {
+                if(this.collisionScript(ball,monster)){
+                    monster.setAttribute("life",monster.attributes.life.value-100);
+                }
+            });
         }
     }
     move(el){
