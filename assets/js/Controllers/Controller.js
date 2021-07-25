@@ -45,8 +45,9 @@ class Controller{
         })
         $("#shoot").on("click",e=>{
             if($("#I")){
-                const bird = this.getPosition($("#I"))
+                if(e.target.value>0){const bird = this.getPosition($("#I"))
                 new WhiteLord(this.game_area,bird.x,bird.y)
+                }
                 e.target.value = e.target.value>0?e.target.value-1:e.target.value
             }
         })

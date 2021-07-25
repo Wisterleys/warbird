@@ -34,7 +34,7 @@ class WhiteLord{
     //INTELIGENCIA VAI VERIFICAR SE EXISTE O PLAYER E SORTEAR QUAL MODO USAR
     intelligence(){
        if(document.querySelector("#player")){
-           let target=document.querySelector("#player")
+           let target=document.querySelector("#I")
         switch(this.allModes[Math.floor(Math.random()*((this.allModes.length-1)-0+1)+0) ]){
             case"attackMode":
                 this.attackMode()
@@ -260,18 +260,18 @@ class WhiteLord{
             this.whiteLord.style.width="35px"
             this.toExchange=this.positions.deathMode
             //-----------------------
-            this.whiteLord.style.background=`url(WhiteLord/_img/Ornah2.png)${this.toExchange[0]}`
-            
+            this.whiteLord.style.background=`url(assets/js/monsters/WhiteLord/img/Ornah2.png)${this.toExchange[0]}`
+            this.dy=1
             //---------------------
             if(this.whiteLord.offsetTop+this.whiteLord.offsetHeight>this.whiteLord.parentNode.offsetHeight){
                 this.dy=0;
-                this.whiteLord.style.background=`url(WhiteLord/_img/Ornah2.png)${this.toExchange[1]}`
+                this.whiteLord.style.background=`url(assets/js/monsters/WhiteLord/img/Ornah2.png)${this.toExchange[1]}`
                 setTimeout(() => {
-                    this.whiteLord.style.background=`url(WhiteLord/_img/Ornah2.png)${this.toExchange[2]}`
+                    this.whiteLord.style.background=`url(assets/js/monsters/WhiteLord/img/Ornah2.png)${this.toExchange[2]}`
                    setTimeout(()=>{
                     let l =setInterval(() => {
                         this.whiteLord.style.width="40px"
-                        this.whiteLord.style.background=`url(WhiteLord/_img/Ornah2.png)${this.toExchange[counterS]}`
+                        this.whiteLord.style.background=`url(assets/js/monsters/WhiteLord/img/Ornah2.png)${this.toExchange[counterS]}`
                         counterS>4?counterS=3:counterS++;
                        if(counter>100){
                         this.whiteLord.remove()
@@ -295,8 +295,8 @@ class WhiteLord{
             this.move()
             if(this.toExchange){
                 if(this.toExchange.length>1){
-                    this.whiteLord.style.background=`url(WhiteLord/_img/Ornah2.png)${this.toExchange[counter]}`
-                }else{this.whiteLord.style.background=`url(WhiteLord/_img/Ornah2.png)${this.toExchange[0]}`}
+                    this.whiteLord.style.background=`url(assets/js/monsters/WhiteLord/img/Ornah2.png)${this.toExchange[counter]}`
+                }else{this.whiteLord.style.background=`url(assets/js/monsters/WhiteLord/img/Ornah2.png)${this.toExchange[0]}`}
                 counter<this.toExchange.length?counter++:counter=0;
             }
             if(this.life<1){
