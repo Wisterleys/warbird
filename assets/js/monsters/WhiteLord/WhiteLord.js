@@ -35,8 +35,8 @@ class WhiteLord{
     //INTELIGENCIA VAI VERIFICAR SE EXISTE O PLAYER E SORTEAR QUAL MODO USAR
     intelligence(){
        if(document.querySelector(this.monsterTarget)){
-           let target=document.querySelector("#I")
-        switch(this.allModes[Math.floor(Math.random()*((this.allModes.length-1)-0+1)+0) ]){
+           let target=document.querySelector(this.monsterTarget)
+        switch(!target?this.allModes[Math.floor(Math.random()*((this.allModes.length-1)-0+1)+0) ]:"attackMode"){
             case"attackMode":
                 this.attackMode()
             break;

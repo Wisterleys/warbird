@@ -1,7 +1,8 @@
 class Cannon{
     constructor(place){
         this.audio = new Audio("assets/sounds/mixkit-arcade-game-explosion-2759.wav")
-        this._life=100
+        this._life=20000
+        this.max_life=20000
         this._place = place;
         this._direction=1;
         this._vel=70;
@@ -18,6 +19,7 @@ class Cannon{
             IHave.y+IHave.height/2<bird.y?this.direction=1:0
             IHave.y+IHave.height/2>bird.y&&IHave.y+IHave.height/2<bird.y+bird.height?this.direction=0:0
             IHave.y+IHave.height/2>bird.y+bird.height?this.direction=-1:0
+            I.classList.remove("hide")
         }
         else{
             this.shoot=false
@@ -30,6 +32,7 @@ class Cannon{
         
             if(this.life<1){
                 clearInterval(this.mainLoop)
+                clearInterval(this.shootLoop)
                 I.$("img")[0].src="assets/images/explosion.gif"
                 setTimeout(()=>{I.remove();},800)
             }
@@ -41,7 +44,7 @@ class Cannon{
             </div>
         */
        let e = el.addEl({tag:"div",class:"cannon",life:this.life,id:"cann"})
-       e.addEl({tag:"div",class:"life",style:`width:${this.life}%;height:5px;background:red;`})
+       e.addEl({tag:"div",class:"life",style:`width:${this.life*100/this.max_life}%;height:5px;background:red;`})
        e.addEl({tag:"img",src:"assets/images/Metallic_Cannon.png",alt:"Cannon"})
        return e;
     }
@@ -59,7 +62,7 @@ class Cannon{
             this.die(el)
             if($("#control-all").value=="true"){
                 this.life=$(".cannon")[0].attributes["life"].value
-                el.$(".life")[0].style.width=this.life+"%";
+                el.$(".life")[0].style.width=this.life*100/this.max_life+"%";
                 el.style.top=el.offsetTop+(this.direction*this.vel)+"px";
           
             }

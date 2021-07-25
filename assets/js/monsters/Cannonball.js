@@ -37,11 +37,13 @@ class Cannonball{
     colision(ball){
         if($("#I")){
             if(this.collisionScript(ball,$("#I"))){
-                $("#I").setAttribute("life", "0");
+                $("#I").setAttribute("life",$("#I").attributes.life.value-100);
+                new Bleeding( $("#I"),$("#I").attributes.life.value,"red")
             }
             $(".monsters").forEach(monster => {
                 if(this.collisionScript(ball,monster)){
                     monster.setAttribute("life",monster.attributes.life.value-100);
+                    monster.style.left=monster.offsetLeft+((this.dx>-1?20:-20)*5)+"px"
                 }
             });
         }
