@@ -40,7 +40,7 @@ class RunsOnTheGround{
                 this.power.style.backgroundSize="100% 100%"
                 this.sound.currentTime=0;
                 this.sound?this.sound.play():0
-                this.target.style.left=this.target.offsetLeft+((this.dx>-1?20:-20)*5)+"px"
+                //this.target.style.left=this.target.offsetLeft+((this.dx>-1?20:-20)*5)+"px"
                 this.target.setAttribute("life",this.target.attributes.life.value-100)
                 
                     setTimeout(() => {
