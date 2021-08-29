@@ -10,7 +10,7 @@ class Controller{
     }
     createCannon(){
         if(this.counter){
-            if(parseInt($("#score").innerText)>=1){
+            if(parseInt($("#score").innerText)>=20){
                 new Cannon(this.game_area)
                // $("#shoot").disabled=false
                 this.counter=false
@@ -48,7 +48,7 @@ class Controller{
                 if(e.target.value>0){const bird = this.getPosition($("#I"))
                     new BirdShot(this.game_area,bird)
                 }
-                //e.target.value = e.target.value>0?e.target.value-1:e.target.value
+                e.target.value = e.target.value>0?e.target.value-1:e.target.value
             }
         })
     }
