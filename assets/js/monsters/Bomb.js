@@ -2,6 +2,7 @@ class Bomb{ // Classe PAI
     constructor(place){
         this.element=this.addEl({place,tag:"div"});
         this.body = place;
+        this.general_loop;
     }
     addEl(obj){
         /*
@@ -38,21 +39,30 @@ class Bomb{ // Classe PAI
     getRandom(min, max) {
         return Math.random() * (max - min) + min;
     }
+    getBall(){
+        if(this.element.colision($("#I"))){
+            console.log("pega!!")
+        }
+    }
     fallen(duration){
         //Quando caído escolher fazer alguma coisa com base no paramento com um tempo em milissegundos determinado
         
     }
     loop(interval,duration){
         let cont=this.element.offsetTop;
-       let loop = setInterval(() => {
+        let contL=this.element.offsetLeft;
+       this.general_loop = setInterval(() => {
+            this.getBall()
             this.element.style.top=cont+"px"
+            this.element.style.left=contL+"px"
             if(this.element.offsetTop+this.element.offsetHeight>=this.body.offsetHeight){
-                clearInterval(loop)
+                clearInterval(this.general_loop)
                 this.fallen(duration);
                 setTimeout(() => {
                     this.removeEl() 
                 },duration);
             }
+            contL--;
             cont++;
         }, (interval));
     }

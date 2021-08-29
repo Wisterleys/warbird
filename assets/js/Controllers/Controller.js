@@ -6,6 +6,12 @@ class Controller{
         this._main_loop;
         this.counter=true
         this._positions=[2,2.5,3.5,5,9]//0,1,2,3,4
+        this.config ={
+            place:this.game_area,// aqui configura a área do game, ou seja, voce define dentro de qual tag acontecerá as animações
+            x:50,
+            y:0,
+            duration:100// essa é o tempo que levará para o objeto sumir da tela
+        }
         //Methods
        this.onStart()
     }
@@ -39,6 +45,7 @@ class Controller{
             
         })
         $("#stop").on("click",e=>{
+            this.audio.pause()
             $(".modal")[0].classList.remove("hide")
             clearInterval(this.main_loop)
             $("#start").disabled=false
@@ -71,7 +78,7 @@ class Controller{
        
         this.main_loop=setInterval(e=>{
             this.audio.currentTime>=this.audio.duration-10?this.audio.currentTime=0:0
-            
+            new Booom(this.config)
             random =this.calculateBarriers(this.rand(100,1))
             if(document.hasFocus()){
                 new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
