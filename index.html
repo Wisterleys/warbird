@@ -9,30 +9,30 @@
     <title>War Flappy Bird</title>
 </head>
 <body>
-    <div id="place-game">
-        <div class="youlose hide">
+    <main id="place-game">
+        <section class="youlose hide">
             <div class="boxlose">
                 <img src="assets/images/you-lose-message.jpg" alt="">
                 <label for="name">SCORE:</label>
                 <input type="button" id="resu">
                 <button id="restart">RESTART</button>
             </div>
-            </div>
-        <div class="modal">
+        </section>
+        <section class="modal">
             <div class="box">
                 <img src="assets/images/teclado-controle.png" alt="">
                 <label for="name">SEU NOME:</label>
                 <input type="text" id="name" placeholder="DIGITE AQUI...">
                 <button id="start">START</button>
             </div>
-        </div>
-        <div id="painel">
+        </section>
+        <section id="painel">
             <button id="stop">PAUSE</button>
             <input type="hidden" id="control-all">
-        </div>
-        <div id="score">
-        </div>
-        <div id="control-painel">
+        </section>
+        <section id="score">
+        </section>
+        <section id="control-painel">
             <div id="control">
                 <input id="up" class="btn-control" type="image" src="assets/images/arrow.svg" alt="" oncontextmenu="return false;">
                 <input id="left" class="btn-control" type="image" src="assets/images/arrow.svg" oncontextmenu="return false;">
@@ -44,8 +44,8 @@
                 <input id="run" class="btn-control" type="image" src="assets/images/run.svg" oncontextmenu="return false;" hidden>
                 <input id="super" class="btn-control" type="image" src="assets/images/super.svg" oncontextmenu="return false;" hidden>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
     <script src="assets/js/prototypes.js"></script>
     <script src="assets/js/Bleeding.js"></script>
     <script src="assets/js/monsters/BirdShot.js"></script>

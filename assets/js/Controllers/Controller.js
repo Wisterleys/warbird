@@ -2,6 +2,7 @@ class Controller{
     constructor(data){
         this.audio = new Audio("assets/sounds/musicwarbird.mp3")
         this._game_area = data.gameArea;
+        this._shoots = 15
         this._main_loop;
         this.counter=true
         this._positions=[2,2.5,3.5,5,9]//0,1,2,3,4
@@ -25,6 +26,7 @@ class Controller{
         new Player(this.game_area,this.positions[4],"")
         $("#control-all").value=null
         $("#restart").on("click",e=>{document.location.reload()})
+       
         $("#start").on("click",e=>{
             this.start()
             this.audio.currentTime=0
@@ -34,9 +36,9 @@ class Controller{
             $("#stop").disabled=false
             $("#control-all").value=true
             $("#I").setAttribute("name",$("#name").value?$("#name").value:"Fulano")
+            
         })
         $("#stop").on("click",e=>{
-            //this.audio.pause()
             $(".modal")[0].classList.remove("hide")
             clearInterval(this.main_loop)
             $("#start").disabled=false
@@ -66,16 +68,17 @@ class Controller{
                 new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random})
                 new BarriersB([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random})
         }
-        
+       
         this.main_loop=setInterval(e=>{
             this.audio.currentTime>=this.audio.duration-10?this.audio.currentTime=0:0
+            
             random =this.calculateBarriers(this.rand(100,1))
             if(document.hasFocus()){
                 new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
                 new BarriersB([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
             }
             this.createCannon()
-        },4000)
+        },3500)
     }
     getPosition(el){
         return el.getBoundingClientRect()
