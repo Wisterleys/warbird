@@ -49,9 +49,10 @@
 #shoot{
     font-family: Pixel;
     font-weight: bolder;
-    color: rgb(0, 0, 0);
+    color: rgb(252, 250, 250);
     font-size: 300%;
-    background: url("../js/monsters/WhiteLord/img/Ornah2.png") -87px -139px;
+    /* background: url("../js/monsters/WhiteLord/img/Ornah2.png") -87px -139px; */
+    background: url("../images/Cannonball.png") 0% 0% / 100% 100%;
     grid-area: s;
     width: 100%;
 }

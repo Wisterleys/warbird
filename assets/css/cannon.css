@@ -33,6 +33,20 @@
 .cannonball img{
     width: 100%;
 }
+.birdshot{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    z-index: 99;
+    border-radius: 360px;
+    animation: ball .2s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.birdshot img{
+    width: 100%;
+}
 /* @keyframes ball {
     0%{
         background: linear-gradient(90deg,black,black,white,black);

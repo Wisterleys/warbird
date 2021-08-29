@@ -14,6 +14,11 @@ Element.prototype.on=function(events,func){
 }
 Element.prototype.$=function(e){return e.search("#")>-1?this.querySelector(e):this.querySelectorAll(e)}
 Element.prototype.toggle=function(){this.classList.toggle("close")}
+Element.prototype.collision=function(targ){
+    const el = this.getBoundingClientRect()
+    const target = targ.getBoundingClientRect();
+    return el.x+el.width>target.x&&el.x<target.x+target.width&&el.y+el.height>=target.y&&el.y<=target.y+target.height
+}
 Element.prototype.addEl=function(obj){
     /*
     exemplo

@@ -1,8 +1,8 @@
 class Cannon{
     constructor(place){
         this.audio = new Audio("assets/sounds/mixkit-arcade-game-explosion-2759.wav")
-        this._life=20000
-        this.max_life=20000
+        this._life=2000
+        this.max_life=2000
         this._place = place;
         this._direction=1;
         this._vel=70;
