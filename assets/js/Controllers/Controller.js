@@ -69,8 +69,10 @@ class Controller{
         this.main_loop=setInterval(e=>{
             this.audio.currentTime>6?this.audio.currentTime=0:0
             random =this.calculateBarriers(this.rand(100,1))
-            new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
-            new BarriersB([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
+            if(document.hasFocus()){
+                new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
+                new BarriersB([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
+            }
             this.createCannon()
         },4000)
     }
