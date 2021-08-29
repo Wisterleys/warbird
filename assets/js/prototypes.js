@@ -17,7 +17,7 @@ Element.prototype.toggle=function(){this.classList.toggle("close")}
 Element.prototype.collision=function(targ){
     const el = this.getBoundingClientRect()
     const target = targ.getBoundingClientRect();
-    return el.x+el.width>target.x&&el.x<target.x+target.width&&el.y+el.height>=target.y&&el.y<=target.y+target.height
+    return el.x>target.x&&el.x+el.width<target.x+target.width&&el.y+el.height>=target.y&&el.y<=target.y+target.height
 }
 Element.prototype.addEl=function(obj){
     /*

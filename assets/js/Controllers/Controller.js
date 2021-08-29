@@ -1,6 +1,6 @@
 class Controller{
     constructor(data){
-        this.audio = new Audio("assets/sounds/geral.mp3")
+        this.audio = new Audio("assets/sounds/musicwarbird.mp3")
         this._game_area = data.gameArea;
         this._main_loop;
         this.counter=true
@@ -28,7 +28,7 @@ class Controller{
         $("#start").on("click",e=>{
             this.start()
             this.audio.currentTime=0
-            //this.audio.play()
+            this.audio.play()
             $(".modal")[0].classList.add("hide")
             $("#start").disabled=true
             $("#stop").disabled=false
@@ -48,7 +48,8 @@ class Controller{
                 if(e.target.value>0){const bird = this.getPosition($("#I"))
                     new BirdShot(this.game_area,bird)
                 }
-                e.target.value = e.target.value>0?e.target.value-1:e.target.value
+                let val = e.target.value>0?e.target.value-1:e.target.value
+                e.target.value = val>9?val:val>0?"0"+val:"00"
             }
         })
     }
@@ -67,7 +68,7 @@ class Controller{
         }
         
         this.main_loop=setInterval(e=>{
-            this.audio.currentTime>6?this.audio.currentTime=0:0
+            this.audio.currentTime>=this.audio.duration-10?this.audio.currentTime=0:0
             random =this.calculateBarriers(this.rand(100,1))
             if(document.hasFocus()){
                 new Barriers([this.game_area,this.getPosition(this.game_area)],{color:["#639301","#a5e82e"],vel:10,height:random});
