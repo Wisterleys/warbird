@@ -4,7 +4,7 @@ class Booom extends Bomb{
         this.width=70;
         this.height=43;
         this.interval=10;
-        this.x=this.getRandom(30,100);
+        this.x=this.getRandom(5,100);
         this.y=obj.y;
         this.duration=100;
         this.color="url('assets/images/parachute-ball.png')";
